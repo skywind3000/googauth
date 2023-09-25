@@ -44,5 +44,5 @@ a bash alias could be created for convenience:
 $ alias googauth='python3 /path/to/googauth.py -l ~/.config/googauth.ini'
 ```
 
-That's all.
+Done.
 
