@@ -28,6 +28,18 @@ if sys.version_info[0] >= 3:
 
 
 #----------------------------------------------------------------------
+# validate
+#----------------------------------------------------------------------
+def validate_secret(secret):
+    token = secret.replace(' ', '').upper()
+    try:
+        base64.b32decode(token)
+    except:
+        return False
+    return True
+
+
+#----------------------------------------------------------------------
 # generate verification code from secret key and value 
 #----------------------------------------------------------------------
 def generate_code(secret, value = None):
@@ -36,7 +48,11 @@ def generate_code(secret, value = None):
     value = struct.pack('>q', value)
 
     token = secret.replace(' ', '').upper()
-    secretkey = base64.b32decode(token)
+    
+    try:
+        secretkey = base64.b32decode(token)
+    except:
+        return 'BASE32-DECODING-ERROR'
 
     hash = hmac.new(secretkey, value, hashlib.sha1).digest()
 
