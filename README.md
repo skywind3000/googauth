@@ -1,6 +1,9 @@
 # Preface
 
-The Python Command-line Reimplementaion of Google Authenticator.
+The Python Command-line Reimplementaion of Google Authenticator:
+
+![](https://skywind3000.github.io/images/p/misc/2023/googauth.png)
+
 
 ## Get started
 
